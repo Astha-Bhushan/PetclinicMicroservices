@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>find visit</title>
+</head>
+<body>
+		
+<form action="findvisitsforpet" method="post">
+		<span>Pet Id</span><input type="number" name="petid"> <input
+			type="submit" value="find visits">
+	</form><br>
+	<div th:switch="${visitList}">
+		<h2 th:case="null">No data Available</h2>
+		<div th:case = "*">
+			<table border="1">
+				<thead>
+			<tr>
+				<th>Visit Id</th>
+				<th>Description</th>
+				<th>Visit Date</th>
+				<th>Pet Id </th>
+			
+			</tr>
+		</thead>
+		<tr th:each="visit:${visitList}">
+		<td><a th:href="@{findOneVisit(id=${visit.visitId})}"><span th:text="${visit.visitId}"></span></a></td>
+		<td><a th:href="@{findOnePet(id=${visit.petId})}"><span th:text="${visit.petId}"></span></a></td>
+		<td th:each = "pet:${petData}"><span th:text="${pet.petName}"></span></td>
+		<td th:each = "pet:${petData}"><span th:text="${pet.owners.ownerName}"></span></td>
+<!--    <td><a th:href="@{findOnespec(id=${visit.specId})}"><span th:text="${visit.specId}"></span></a><td> -->
+		</tr>
+		</table>
+		</div>
+	</div>
+</body>
+</html>

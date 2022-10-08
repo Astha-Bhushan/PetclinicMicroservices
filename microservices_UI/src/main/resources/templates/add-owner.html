@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Owner Page</title>
+</head>
+<body>
+<h1> Add Owner to Database</h1>
+
+	<form action="save" method="post" th:object="${owner}">
+	    <table>
+		<tr><td> <span>Owner Id</span></td>
+		    <td><input type="text" th:field="*{ownerId}"></td></tr>
+		<tr><td><span>Owner Name</span></td>
+		    <td><input type="text" th:field="*{ownerName}"></td></tr>
+		
+		</table>
+	
+		<input	type="submit" value="Add Owner">
+	</form>
+	
+	
+</body>
+</html>

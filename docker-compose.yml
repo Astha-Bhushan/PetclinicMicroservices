@@ -1,0 +1,65 @@
+version: '3'
+services:
+  eureka_server:
+    image: eureka_server:1.0
+    container_name: eureka-server
+    expose:
+    - "8761"
+    ports: 
+    - 8761:8761	
+  owner_service:
+    image: owner_service:1.0
+    #container_name: owner-service
+    ports:
+    - 8180:8180
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:8761/eureka  -DDB_USER=admin -DDB_PASSWORD=astha123 -DJDBC=jdbc:mariadb://training.csaulmmiambu.us-east-1.rds.amazonaws.com:3306/owners
+      
+    links: 
+        - eureka-server
+  vet_service:
+    image: vet_service:1.0
+    #container_name: vet-service
+    ports:
+    - 8280:8280
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:8761/eureka  -DDB_USER=admin -DDB_PASSWORD=astha123 -DJDBC=jdbc:mariadb://training.csaulmmiambu.us-east-1.rds.amazonaws.com:3306/vets
+      
+    links: 
+        - eureka-server
+  visit_service:
+    image: visit_service:1.0
+    #container_name: visit-service
+    ports:
+    - 8380:8380
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:8761/eureka  -DDB_USER=admin -DDB_PASSWORD=astha123 -DJDBC=jdbc:mariadb://training.csaulmmiambu.us-east-1.rds.amazonaws.com:3306/visits
+      
+    links: 
+        - eureka-server
+  api-gateway:
+    image: api-gateway:0.0.1-SNAPSHOT
+    #container_name: apigateway-service
+    ports:
+    - "9091:9010"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:8761/eureka  #(name of eureka host==eureka container name)
+      
+    links: 
+        - eureka-server
+        
+  microservices_ui:
+    image: microservices_ui:1.0
+    #container_name: ui-service
+    ports:
+    - "8080"
+    environment:
+      - JAVA_OPTS=
+            -DEUREKA_SERVER=http://eureka-server:8761/eureka  #(name of eureka host==eureka container name)
+      
+    links: 
+        - eureka-server

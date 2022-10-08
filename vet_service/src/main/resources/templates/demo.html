@@ -1,0 +1,35 @@
+<html>
+<head>
+
+
+
+</head>
+<body>
+
+	<form action="find" method="get">
+
+		<span> New Owner</span> <input type="number"> <input
+			type="name"> <input type="submit" value="">
+
+	</form>
+	
+	<div th:switch="${ownerData}">
+		<h2 th:case="null">No data here</h2>
+		<div th:case="*">
+		<table border="1">
+
+			<tr>
+				<td>Owner Id</td>
+				<td><span th:field="*{ownerId}"></span></td>
+			</tr>
+			<tr>
+				<td>Owner Name</td>
+				<td><span th:field="*{ownerName}"></span></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+</body>
+
+
+</html>

@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.demo</groupId>
+  <artifactId>petclinic_mockProject</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>petclinic_mockProject</name>
+  <modules>
+  	<module>Eureka_server</module>
+  	<module>api-gateway</module>
+  	<module>microservices_UI</module>
+  	<module>owner_service</module>
+  	<module>vet_service</module>
+  	<module>visit_service</module>
+  </modules>
+</project>

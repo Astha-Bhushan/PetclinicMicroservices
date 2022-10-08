@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>find visit</title>
+</head>
+<body>
+    <form action="findVisit" method="post">
+        <span>visit Id</span><input type="text" name="id"> <input
+            type="submit" value="Find Visit">
+    </form>
+    <div th:switch="${visitData}">
+        <h2 th:case="null"></h2>
+        <div th:case="*">
+            <table border="1">
+                <tr>
+                    <td>Vet Id</td>
+                    <td><span th:text="${visitData.vetId}"></span></td>
+                </tr>
+              
+                <tr>
+                    <td>Pet Id</td>
+                    <td><span th:text="${visitData.petId}"></span></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>Speciality</td>
+                    <td><span th:text="${visitData.speciality}"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

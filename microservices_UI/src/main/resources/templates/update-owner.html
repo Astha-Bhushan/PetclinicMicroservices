@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> Update Owner to Database</h1>
+<hr>
+	<form action="update" method="post" th:object="${owner}">
+	    <table>
+		<tr><td>  <span>Owner Id</span>  </td><td>  <input type="text" th:field="*{ownerId}">  </td> 
+		    <td>  <span>Owner Name</span> <td><td>  <input type="text" th:field="*{ownerName}"> </td>
+		    
+		</tr>
+	    
+	    </table>
+		<input	type="submit" value="Update Owner">
+		
+	</form>
+	
+
+</body>
+</html>

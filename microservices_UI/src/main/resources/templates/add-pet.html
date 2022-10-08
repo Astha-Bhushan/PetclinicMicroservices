@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> Add Pet to Database</h1>
+
+
+	<form action="add-pet" method="post" th:object="${pet}">
+	    
+	   
+	    <table>
+	    <tr><td>  <span>Pet Id</span>    </td>
+	        <td>  <input type="text" th:field="*{petId}"><br/>      </td></tr>
+		<tr><td>  <span>Pet Name</span>  </td>
+		    <td>  <input type="text" th:field="*{petName}"><br/>    </td></tr>
+		<tr><td>  <span> Type </span>    </td>
+		    <td>  <input type="text" th:field="*{type}">            </td></tr>
+		
+		</table>
+
+		<input	type="submit" value="Add Pet">
+	</form>
+	
+	
+</body>
+</html>

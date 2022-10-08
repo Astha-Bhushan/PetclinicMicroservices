@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Add Visit to Database</h1>
+
+	<form action="add-visit" method="post" th:object="${visit}">
+
+        <table>
+        <tr><td><span> Pet Id </span></td>
+            <td><input type="number" th:field="*{petId}"></td></tr>
+		<tr><td><span>Visit Id</span></td>
+		    <td><input type="number" th:field="*{visitId}"></td>
+
+		<tr><td><span>Vet Id</span></td> 
+		    <td><input type="number" th:field="*{vetId}"></td></tr>
+		
+		<tr><td><span>Speciality</span></td> 
+		    <td><input type="text" th:field="*{speciality}"></td></tr>
+		
+		</table>
+
+
+		<input type="submit" value="Add Visit">
+		
+		<h2> Below is list of vets , for your reference </h2>
+		<a th:href="@{'/listVet'}" href="vet-list.html"> Vet List </a>
+		
+	</form>
+
+
+
+
+</body>
+</body>
+</html>

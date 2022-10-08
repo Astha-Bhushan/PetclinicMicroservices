@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+  <table border="1">
+		<thead>
+			<tr>
+				<th>Pet Id</th>
+				<th>Visit Id</th>
+				<th>Vet Id</th>
+				<th>Speciality </th>
+			</tr>
+		</thead>
+		<h2>Visit List</h2>
+		<tr th:each="visit:${visitlist}">
+		    <td><span th:text="${visit.petId}"></span></td>
+		    <td><span th:text="${visit.visitId}"></span></td>
+		    <td><span th:text="${visit.vetId}"></span></td>
+		    <td><span th:text="${visit.speciality}"></span></td>
+		  
+		
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+server:
+ port: 9000
+
+spring:
+ application: 
+  name: gateway-service
+ cloud:
+   gateway:
+     routes:
+      - id: owner_service
+        uri: lb://owner-service/                         # lb://owner-service/
+        predicates:
+         - Path=/owner/** #the part of back end application uri
+      - id: vet_service
+        uri: lb://vet-service/
+        predicates:
+         - Path=/vet/**
+      - id: visit_service
+        uri: lb://visit-service/
+        predicates:
+         - Path=/visit/**
+      - id: microservices_UI
+        uri: lb://ui/
+        predicates:
+         - Path=/ui/**
+        
+eureka:
+  client:
+    register-with-eureka: true
+    service-url: 
+     defaultZone : ${EUREKA_SERVER:http://localhost:8761/eureka/}
+ 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

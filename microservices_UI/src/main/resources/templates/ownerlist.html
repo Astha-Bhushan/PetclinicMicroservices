@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border-collapse: collapse;
+	border: 2px solid blue;
+}
+
+th td tr {
+	border: 2px solid blue;
+	width: 10%;
+	height: auto;
+}
+</style>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Owner Id</th>
+				<th>Owner Name</th>
+				<th>Pets</th>
+			</tr>
+		</thead>
+		<h2>Owner List</h2>
+		<tr th:each="owner:${ownerlist}">
+			<td><a th:href="@{ find(id=${owner.ownerId}) }"> <span
+					th:text="${owner.ownerId}"></span></a></td>
+
+			<td><span th:text="${owner.ownerName}"></span></td>
+
+			<!--  	<td><a th:href="@{ listPet(id=${owner.ownerId}) }"> <span
+					th:text="${owner.pets}"></span></a></td>  -->
+
+			<td>
+				<table border="1">
+					<tr th:each="p:${owner.pets}">
+                        <td><span th:text="${p.petId}"></span></td>
+						<td><span th:text="${p.petName}"></span></td>
+						<td><span th:text="${p.type}"></span></td>
+					</tr>
+				</table>
+			</td>
+			<td><a th:href="@{ listPet(id=${owner.ownerId}) }"> Pet List
+			</a></td>
+			<td><a th:href="@{ add-pet(id=${owner.ownerId})}"> Add pet</a></td>
+			<td><a th:href="@{ update(id=${owner.ownerId})}"> Update owner</a></td>
+			<td><a th:href="@{ delete(id=${owner.ownerId})}"> Delete owner</a></td>
+
+		</tr>
+	</table>
+
+
+	<br>
+	<div>
+	<table border="1">
+		<tr>
+			<td><a th:href="@{'/listVet'}" href="vet-list.html">Vet List</a></td>
+
+		</tr>
+		<tr>
+			<td><a th:href="@{'/findVisit'}" href="find-visit.html">Find Visit</a></td>
+
+		</tr>
+	</table>
+	</div>
+
+
+</body>
+</html>

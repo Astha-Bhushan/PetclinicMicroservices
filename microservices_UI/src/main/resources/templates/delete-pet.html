@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Owner Page</title>
+</head>
+<body>
+<h1> Delete Pet to Database</h1>
+
+	<form action="delete-pet" method="post" th:object="${pet}">
+		<span>Pet Id</span><input type="text" th:field="*{petId}"><br/>
+		<input	type="submit" value="Delete Pet">
+	</form>
+	
+	
+</body>
+</html>

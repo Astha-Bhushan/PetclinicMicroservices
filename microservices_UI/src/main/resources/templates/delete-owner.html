@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Owner Page</title>
+</head>
+<body>
+<h1> Delete Owner to Database</h1>
+
+	<form action="delete" method="post" th:object="${owner}">
+		<span>Owner Id</span><input type="text" th:field="*{ownerId}"><br/>
+		<input	type="submit" value="Delete Owner">
+	</form>
+	
+	
+</body>
+</html>

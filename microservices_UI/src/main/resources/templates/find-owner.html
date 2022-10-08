@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Owner Page</title>
+
+
+</head>
+<body>
+
+	<form action="find" method="post">
+
+		<span> Owner ID </span>
+	    <input type="text" name="ownerId"> 
+	    <input type="submit" value="Find">
+
+	</form>
+	<div th:switch="${ownerData}">
+		<h2 th:case="null">No Data</h2>
+		<div th:case="*">
+			<table border="1">
+
+				<tr>
+					<td>Owner Id</td>
+					<td><span th:text="${ownerData.ownerId}"></span></td>
+				</tr>
+				<tr>
+					<td>Owner Name</td>
+					<td><span th:text="${ownerData.ownerName}"></span></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+
+
+</html>
