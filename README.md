@@ -1,4 +1,4 @@
-# PetclinicMicroservices
+# Petclinic Microservices
 
 Petclinic is an application used by the clinic for Pets and Veterinary services. It tracks the 
 clinical visits for Pets for various veterinary services. It has functionalities related to Pet 
