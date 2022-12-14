@@ -8,14 +8,14 @@ pipeline {
 	
         stage('Build maven ') {
             steps { 
-                    bat 'pwd'      
-                    bat 'mvn  clean install package'
+                    sh 'pwd'      
+                    sh 'mvn  clean install package'
             }
         }
 		
         stage("dockerize"){
             steps{
-            bat "docker-compose up"
+            sh "docker-compose up"
             }
         }
         
